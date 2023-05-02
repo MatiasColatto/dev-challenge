@@ -1,6 +1,14 @@
 .App {
   text-align: center;
 }
+.navbar{
+  background-color: #ced6e421;
+  padding: 12px;
+  font-weight: 600;
+  color: #5a75a7e1;
+  border-bottom: solid 4px;
+  border-color: #acb7cc57;
+}
 
 .App-logo {
   height: 40vmin;

@@ -32,17 +32,18 @@ async function get(req, res, next) {
     }
 }
 
-/**
-async function post(req, res, next) {
+
+async function postUser(req, res, next) {
     try {
-        res.json(await homeService.post(...));
+        res.json(await homeService.post('...'));
     } catch (err) {
         console.error(`Error in POST /: ${err.message}`);
         return next(err);
     }
 }
-*/
+
 
 module.exports = {
-    get
+    getUser,
+    postUser
 };

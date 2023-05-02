@@ -1,9 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
-
 import { useEffect, useState } from 'react';
+import Route from './context/Routing';
+import Home from './pages/home';
+import Register from './pages/register';
+import WeatherWidget from './pages/Weather/WeatherWidget';
 
 function App() {
+
   const [data, setData] = useState(null);
 
   async function fetchData() {
@@ -19,14 +22,18 @@ function App() {
   }, []);
 
   return (
-    < div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          {data ? data.message : 'Loading...'}
-        </p>
-      </header>
-    </div >
+    <div>
+      <div className='navbar'>Weather Widget App</div>
+      <Route path="/">
+        <Home/>
+      </Route>
+      <Route path="/register">
+        <Register/>
+        </Route>
+        <Route path="/weather">
+          <WeatherWidget/>
+      </Route>
+    </div>
   );
 }
 

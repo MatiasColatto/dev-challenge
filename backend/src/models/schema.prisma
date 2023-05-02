@@ -3,18 +3,26 @@
 
 datasource db {
     url      = env("DB_URI")
-    provider = "mysql"
+    provider = "postgresql"
 }
 
 generator client {
     provider = "prisma-client-js"
 }
 
-model User {
-    id          String @id @default(cuid())
-    username    String
-    password    String
-    email       String
-    createdAt   DateTime @default(now())
-    updatedAt   DateTime @default(now())
+model user {
+    id Int @id @default(autoincrement())
+    password String 
+    email String 
+    weather weather[]
+}
+
+model weather {
+    id Int @id @default(autoincrement())
+    icon String 
+    temperature Float 
+    city String
+    country String
+    userId Int?
+    user user? @relation(fields: [userId],references: [id])
 }
